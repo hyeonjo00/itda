@@ -90,6 +90,8 @@ const headerTitle = document.querySelector("[data-header-title]");
 const headerSubtitle = document.querySelector("[data-header-subtitle]");
 const modal = document.querySelector("#modal");
 const memoCard = document.querySelector(".memo-card");
+const toast = document.querySelector("[data-toast]");
+let toastTimer;
 
 function setScreen(name) {
   screens.forEach((screen) => {
@@ -113,6 +115,19 @@ function openModal(kind) {
   modal.querySelector("[data-modal-title]").textContent = title;
   modal.querySelector("[data-modal-copy]").textContent = copy;
   modal.showModal();
+}
+
+function openInfo(title, copy) {
+  modal.querySelector("[data-modal-title]").textContent = title;
+  modal.querySelector("[data-modal-copy]").textContent = copy;
+  modal.showModal();
+}
+
+function showToast(message) {
+  clearTimeout(toastTimer);
+  toast.textContent = message;
+  toast.classList.add("show");
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 1600);
 }
 
 function setActiveWithin(group, activeButton) {
@@ -449,6 +464,99 @@ document.querySelectorAll(".quick-grid button").forEach((button) => {
   });
 });
 
+document.addEventListener("click", (event) => {
+  const formatButton = event.target.closest(".format-bar button");
+  if (formatButton) {
+    formatButton.classList.toggle("active");
+    showToast(`${formatButton.textContent.trim()} 서식이 적용됐어요`);
+    return;
+  }
+
+  const docToolbarButton = event.target.closest(".doc-toolbar button");
+  if (docToolbarButton) {
+    setActiveWithin(docToolbarButton.closest(".doc-toolbar"), docToolbarButton);
+    showToast(`${docToolbarButton.textContent.trim()}만 모아볼게요`);
+    return;
+  }
+
+  const memoAction = event.target.closest(".memo-actions button");
+  if (memoAction && !memoAction.dataset.openModal) {
+    showToast(memoAction.textContent.includes("↶") ? "이전 상태로 되돌렸어요" : "다시 실행했어요");
+    return;
+  }
+
+  const calendarDay = event.target.closest(".calendar b");
+  if (calendarDay) {
+    document.querySelectorAll(".calendar b").forEach((day) => day.classList.remove("selected"));
+    calendarDay.classList.add("selected");
+    showToast(`${calendarDay.textContent}일 일정이 선택됐어요`);
+    return;
+  }
+
+  const agendaItem = event.target.closest(".agenda p");
+  if (agendaItem) {
+    openInfo("일정 상세", `${agendaItem.textContent.trim()} 일정 상세 화면입니다.`);
+    return;
+  }
+
+  const chatSearch = event.target.closest(".chat-title button:first-of-type, .info-header button:nth-of-type(2)");
+  if (chatSearch) {
+    openInfo("검색", "채팅방, 메시지, 팀원을 검색하는 화면입니다.");
+    return;
+  }
+
+  const chatAdd = event.target.closest(".chat-filters button:last-child, .chat-input button:first-child");
+  if (chatAdd) {
+    openInfo("추가 메뉴", "사진, 파일, 링크, 투표를 첨부할 수 있는 메뉴입니다.");
+    return;
+  }
+
+  const chatInfoMore = event.target.closest(".info-header button:nth-of-type(3)");
+  if (chatInfoMore) {
+    openInfo("채팅방 메뉴", "공지, 파일, 링크, 알림 끄기, 채팅방 나가기 메뉴입니다.");
+    return;
+  }
+
+  const plainRoom = event.target.closest(".chat-room-list button:not([data-screen-target])");
+  if (plainRoom) {
+    setScreen("chat-detail");
+    return;
+  }
+
+  const member = event.target.closest(".member-list button");
+  if (member) {
+    const name = member.querySelector("strong")?.textContent || "팀원";
+    openInfo(name, `${name}의 역할, 학번, 담당 업무를 확인하는 프로필 화면입니다.`);
+    return;
+  }
+
+  const notice = event.target.closest(".notice-list button");
+  if (notice) {
+    notice.querySelector("i")?.remove();
+    const title = notice.querySelector("strong")?.textContent || "알림";
+    const copy = notice.querySelector("small")?.textContent || "알림 상세입니다.";
+    openInfo(title, copy);
+    return;
+  }
+
+  const profileArrow = event.target.closest(".profile-main-row button");
+  if (profileArrow) {
+    openInfo("프로필 상세", "프로필 사진, 이름, 이메일, 학과 정보를 수정하는 화면입니다.");
+    return;
+  }
+
+  const teamMore = event.target.closest(".my-team .card-title button");
+  if (teamMore) {
+    openInfo("내 팀 전체 보기", "참여 중인 모든 팀플 목록을 확인하는 화면입니다.");
+    return;
+  }
+
+  const logout = event.target.closest(".logout");
+  if (logout) {
+    openInfo("로그아웃", "현재 계정에서 로그아웃하는 확인 화면입니다.");
+  }
+});
+
 memoCard.addEventListener("click", (event) => {
   const modalButton = event.target.closest("[data-open-modal]");
   if (modalButton) {
@@ -460,9 +568,7 @@ memoCard.addEventListener("click", (event) => {
   if (!actionButton) return;
 
   const action = actionButton.dataset.docAction;
-  modal.querySelector("[data-modal-title]").textContent = action;
-  modal.querySelector("[data-modal-copy]").textContent = `${action} 화면으로 이어지는 앱 스타일 목업입니다. 발표 중에는 이 버튼을 눌러 문서 열기, 공유, 복구 같은 흐름을 보여줄 수 있어요.`;
-  modal.showModal();
+  openInfo(action, `${action} 화면으로 이어지는 앱 스타일 목업입니다. 발표 중에는 이 버튼을 눌러 문서 열기, 공유, 복구 같은 흐름을 보여줄 수 있어요.`);
 });
 
 document.querySelector(".chat-input")?.addEventListener("submit", (event) => {
