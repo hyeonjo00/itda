@@ -89,6 +89,7 @@ const navButtons = document.querySelectorAll("[data-screen-target]");
 const headerTitle = document.querySelector("[data-header-title]");
 const headerSubtitle = document.querySelector("[data-header-subtitle]");
 const modal = document.querySelector("#modal");
+const memoCard = document.querySelector(".memo-card");
 
 function setScreen(name) {
   screens.forEach((screen) => {
@@ -118,7 +119,184 @@ function setActiveWithin(group, activeButton) {
   group.querySelectorAll("button").forEach((button) => button.classList.toggle("active", button === activeButton));
 }
 
+function renderPersonalEditor() {
+  memoCard.innerHTML = `
+    <div class="memo-head">
+      <div>
+        <h2>최종 발표 자료 정리 ⭐</h2>
+        <p>9월 19일 10:30 ㅣ 내 메모</p>
+      </div>
+      <div class="memo-actions">
+        <button type="button">↶</button>
+        <button type="button">↷</button>
+        <button type="button" data-open-modal="memoMenu">⋯</button>
+      </div>
+    </div>
+    <div class="format-bar">
+      <button type="button">본문⌄</button>
+      <button type="button">16⌄</button>
+      <button type="button"><b>B</b></button>
+      <button type="button"><i>I</i></button>
+      <button type="button"><u>U</u></button>
+      <button type="button">☷</button>
+      <button type="button">▧</button>
+    </div>
+    <section class="note-section">
+      <h3><span class="badge violet">⌁</span> 목차</h3>
+      <ul></ul>
+    </section>
+    <section class="note-section">
+      <h3><span class="badge mint">☑</span> 할 일</h3>
+      <label><input type="checkbox" checked /> 시장 조사 자료 정리</label>
+      <label><input type="checkbox" checked /> 경쟁사 벤치마킹</label>
+      <label><input type="checkbox" /> PPT 초안 작성</label>
+      <label><input type="checkbox" /> 디자인 시안 확정</label>
+    </section>
+    <section class="note-section">
+      <h3><span class="badge amber">⌕</span> 아이디어</h3>
+      <p class="idea-box"></p>
+    </section>
+    <button class="file-card" type="button" data-open-modal="file">
+      <span>P</span>
+      <strong>최종 발표 초안.pptx</strong>
+      <small>9.2MB ㅣ 9월 19일 10:25</small>
+      <em>⋯</em>
+    </button>
+  `;
+}
+
+function renderHangulDocs() {
+  memoCard.innerHTML = `
+    <div class="doc-hero hwp">
+      <span>한</span>
+      <div>
+        <h2>한글 문서</h2>
+        <p>과제 초안과 보고서를 문서 형태로 관리해요.</p>
+      </div>
+      <button type="button" data-doc-action="새 한글 문서">+ 새 문서</button>
+    </div>
+    <div class="doc-toolbar">
+      <button class="active" type="button">최근 문서</button>
+      <button type="button">내가 작성</button>
+      <button type="button">팀 문서</button>
+    </div>
+    <div class="doc-list">
+      <button class="doc-item featured" type="button" data-doc-action="시장 조사 정리.hwp">
+        <span class="doc-icon hwp">한</span>
+        <strong>시장 조사 정리.hwp</strong>
+        <small>1.8MB ㅣ 방금 수정됨 ㅣ 개인</small>
+        <em>작성 중</em>
+      </button>
+      <button class="doc-item" type="button" data-doc-action="문제 정의 초안.hwp">
+        <span class="doc-icon hwp">한</span>
+        <strong>문제 정의 초안.hwp</strong>
+        <small>842KB ㅣ 9월 18일 21:10 ㅣ 공유 가능</small>
+        <em>초안</em>
+      </button>
+      <button class="doc-item" type="button" data-doc-action="발표 대본.hwp">
+        <span class="doc-icon hwp">한</span>
+        <strong>발표 대본.hwp</strong>
+        <small>612KB ㅣ 9월 17일 13:40 ㅣ 내 문서</small>
+        <em>검토</em>
+      </button>
+    </div>
+    <section class="doc-preview">
+      <h3>문서 미리보기</h3>
+      <p><b>팀플 앱 잇다(ITDA)</b></p>
+      <p>카카오톡에서 개인 연락과 과제가 섞이는 문제를 줄이고, 파일과 회의 내용을 한 곳에서 관리하는 복합형 팀플 플랫폼입니다.</p>
+    </section>
+  `;
+}
+
+function renderSharedNotes() {
+  memoCard.innerHTML = `
+    <div class="doc-hero shared">
+      <span>♧</span>
+      <div>
+        <h2>공유 메모장</h2>
+        <p>팀원이 함께 작성하고 수정 상태를 바로 확인해요.</p>
+      </div>
+      <button type="button" data-doc-action="팀원 초대">팀원 초대</button>
+    </div>
+    <div class="collab-strip">
+      <span class="avatar mini">김</span>
+      <span class="avatar mini green">유</span>
+      <span class="avatar mini orange">허</span>
+      <b>3명이 편집 중</b>
+    </div>
+    <div class="doc-list">
+      <button class="doc-item featured" type="button" data-doc-action="역할 분담 내용">
+        <span class="doc-icon shared">공</span>
+        <strong>역할 분담 내용</strong>
+        <small>김쫀틸, 유연아 공동 편집 ㅣ 9월 18일 15:45</small>
+        <em>실시간</em>
+      </button>
+      <button class="doc-item" type="button" data-doc-action="회의 결정사항">
+        <span class="doc-icon shared">공</span>
+        <strong>회의 결정사항</strong>
+        <small>댓글 4개 ㅣ 마지막 수정 12분 전</small>
+        <em>댓글</em>
+      </button>
+      <button class="doc-item" type="button" data-doc-action="자료 조사 링크 모음">
+        <span class="doc-icon shared">링</span>
+        <strong>자료 조사 링크 모음</strong>
+        <small>링크 8개 ㅣ 팀 전체 공유</small>
+        <em>공유됨</em>
+      </button>
+    </div>
+    <section class="shared-board">
+      <h3>최근 변경</h3>
+      <p><b>유연아</b>님이 “발표 자료 제작” 체크를 완료했어요.</p>
+      <p><b>허디록</b>님이 기획안 문장을 수정했어요.</p>
+    </section>
+  `;
+}
+
+function renderTrash() {
+  memoCard.innerHTML = `
+    <div class="doc-hero trash">
+      <span>⌫</span>
+      <div>
+        <h2>휴지통</h2>
+        <p>삭제된 메모는 30일 동안 보관돼요.</p>
+      </div>
+      <button type="button" data-doc-action="휴지통 비우기">비우기</button>
+    </div>
+    <div class="trash-summary">
+      <strong>삭제된 항목 4개</strong>
+      <small>복구하거나 영구 삭제할 수 있어요.</small>
+    </div>
+    <div class="doc-list">
+      <button class="doc-item deleted" type="button" data-doc-action="아이디어 스케치 복구">
+        <span class="doc-icon trash">⌫</span>
+        <strong>아이디어 스케치</strong>
+        <small>삭제됨 2일 전 ㅣ 아이디어</small>
+        <em>복구</em>
+      </button>
+      <button class="doc-item deleted" type="button" data-doc-action="구버전 발표 대본 복구">
+        <span class="doc-icon trash">⌫</span>
+        <strong>구버전 발표 대본</strong>
+        <small>삭제됨 5일 전 ㅣ 한글 문서</small>
+        <em>복구</em>
+      </button>
+      <button class="doc-item deleted" type="button" data-doc-action="중복 파일 삭제">
+        <span class="doc-icon trash">⌫</span>
+        <strong>중복 파일 메모</strong>
+        <small>삭제됨 12일 전 ㅣ 개인 메모</small>
+        <em>삭제</em>
+      </button>
+    </div>
+    <section class="empty-hint">
+      <h3>안내</h3>
+      <p>복구 버튼을 누르면 메모장으로 다시 이동하고, 비우기를 누르면 완전히 삭제되는 흐름을 보여줍니다.</p>
+    </section>
+  `;
+}
+
 function updateMemo(name) {
+  if (!document.querySelector(".note-section ul")) {
+    renderPersonalEditor();
+  }
   const memo = memoData[name] || memoData["최종 발표 자료 정리"];
   const title = document.querySelector(".memo-head h2");
   const meta = document.querySelector(".memo-head p");
@@ -177,7 +355,11 @@ navButtons.forEach((button) => {
 });
 
 document.querySelectorAll("[data-open-modal]").forEach((button) => {
-  button.addEventListener("click", () => openModal(button.dataset.openModal));
+  button.addEventListener("click", (event) => {
+    if (button.closest(".memo-card")) return;
+    event.stopPropagation();
+    openModal(button.dataset.openModal);
+  });
 });
 
 document.querySelectorAll("[data-close-modal]").forEach((button) => {
@@ -188,11 +370,13 @@ document.querySelectorAll(".pill-row .pill").forEach((button) => {
   button.addEventListener("click", () => {
     setActiveWithin(button.closest(".pill-row"), button);
     const label = button.textContent.trim();
-    const [title, copy, memoName] = documentModes[label] || documentModes["메모장(개인)"];
-    updateMemo(memoName);
-    openModal("memo");
-    modal.querySelector("[data-modal-title]").textContent = title;
-    modal.querySelector("[data-modal-copy]").textContent = copy;
+    if (label === "메모장(개인)") {
+      renderPersonalEditor();
+      updateMemo("최종 발표 자료 정리");
+    }
+    if (label === "한글 문서") renderHangulDocs();
+    if (label === "공유 메모장") renderSharedNotes();
+    if (label === "휴지통") renderTrash();
   });
 });
 
@@ -263,6 +447,22 @@ document.querySelectorAll(".quick-grid button").forEach((button) => {
     if (label === "회의록") setScreen("memo");
     if (label === "화상회의") openModal("notice");
   });
+});
+
+memoCard.addEventListener("click", (event) => {
+  const modalButton = event.target.closest("[data-open-modal]");
+  if (modalButton) {
+    openModal(modalButton.dataset.openModal);
+    return;
+  }
+
+  const actionButton = event.target.closest("[data-doc-action]");
+  if (!actionButton) return;
+
+  const action = actionButton.dataset.docAction;
+  modal.querySelector("[data-modal-title]").textContent = action;
+  modal.querySelector("[data-modal-copy]").textContent = `${action} 화면으로 이어지는 앱 스타일 목업입니다. 발표 중에는 이 버튼을 눌러 문서 열기, 공유, 복구 같은 흐름을 보여줄 수 있어요.`;
+  modal.showModal();
 });
 
 document.querySelector(".chat-input")?.addEventListener("submit", (event) => {
