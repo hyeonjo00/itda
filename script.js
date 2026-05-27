@@ -1,4 +1,4 @@
-const titles = {
+﻿const titles = {
   memo: ["메모", ""],
   home: ["", ""],
   progress: ["", ""],
@@ -68,11 +68,11 @@ const boardItems = {
   ],
   파일: [
     ["▤", "최종 디자인 시안_v3.pdf", "유연아 · 9월 19일 10:30"],
-    ["▤", "발표 대본 최종본.docx", "김쫀틸 · 9월 18일 22:10"],
+    ["▤", "발표 대본 최종본.docx", "김플팀 · 9월 18일 22:10"],
   ],
   링크: [
     ["🔗", "경쟁사 분석 참고 링크", "허디록 · 9월 18일 15:45"],
-    ["🔗", "Figma 프로토타입 링크", "김쫀틸 · 9월 18일 16:40"],
+    ["🔗", "Figma 프로토타입 링크", "김플팀 · 9월 18일 16:40"],
   ],
   사진: [
     ["사진", "아이디어 스케치 사진", "파일 · 9월 17일 20:10"],
@@ -80,7 +80,7 @@ const boardItems = {
   ],
   공지: [
     ["!", "중간 발표 준비 안내", "유연아 · 9월 16일 09:00"],
-    ["!", "6/11 팀미팅 예정", "김쫀틸 · 9월 15일 12:10"],
+    ["!", "6/11 팀미팅 예정", "김플팀 · 9월 15일 12:10"],
   ],
 };
 
@@ -243,7 +243,7 @@ function renderSharedNotes() {
       <button class="doc-item featured" type="button" data-doc-action="역할 분담 내용">
         <span class="doc-icon shared">공</span>
         <strong>역할 분담 내용</strong>
-        <small>김쫀틸, 유연아 공동 편집 ㅣ 9월 18일 15:45</small>
+        <small>김플팀, 유연아 공동 편집 ㅣ 9월 18일 15:45</small>
         <em>실시간</em>
       </button>
       <button class="doc-item" type="button" data-doc-action="회의 결정사항">
