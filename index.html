@@ -303,13 +303,22 @@
             <button type="button">안 읽은 알림</button>
             <button type="button">중요 알림</button>
           </div>
+          <div class="alert-summary">
+            <strong data-alert-summary-title>전체 알림</strong>
+            <small data-alert-summary-copy>팀플 활동을 시간순으로 모아봤어요.</small>
+          </div>
           <div class="notice-list">
-            <button type="button"><span class="badge blue">☁</span><strong>채팅 알림</strong><small>지훈: 회의 내용 공유해드릴게요!</small><time>2분 전</time><i></i></button>
-            <button type="button"><span class="badge mint">▱</span><strong>파일 업로드 알림</strong><small>승민님이 '프로젝트 제안서.pdf'를 업로드했습니다.</small><time>10분 전</time><i></i></button>
-            <button type="button"><span class="badge amber">🔗</span><strong>링크 업로드 알림</strong><small>지훈님이 링크를 공유했습니다. https://www.figma.com/...</small><time>30분 전</time><i></i></button>
-            <button type="button"><span class="badge violet">▧</span><strong>사진 업로드 알림</strong><small>소정님이 사진을 업로드했습니다.</small><time>1시간 전</time><i></i></button>
-            <button type="button"><span class="badge rose">▻</span><strong>화상회의 알람</strong><small>오늘 15:00에 화상회의가 예정되어 있습니다.</small><time>2시간 전</time><i></i></button>
-            <button type="button"><span class="badge blue">▥</span><strong>투표 알람</strong><small>새로운 투표가 등록되었습니다. 점심 메뉴를 선택해주세요!</small><time>3시간 전</time><i></i></button>
+            <button type="button" data-alert-type="unread important"><span class="badge blue">☁</span><strong>채팅 알림</strong><small>지훈: 회의 내용 공유해드릴게요!</small><time>2분 전</time><i></i><em>중요</em></button>
+            <button type="button" data-alert-type="unread"><span class="badge mint">▱</span><strong>파일 업로드 알림</strong><small>승민님이 '프로젝트 제안서.pdf'를 업로드했습니다.</small><time>10분 전</time><i></i></button>
+            <button type="button" data-alert-type="unread"><span class="badge amber">🔗</span><strong>링크 업로드 알림</strong><small>지훈님이 링크를 공유했습니다. https://www.figma.com/...</small><time>30분 전</time><i></i></button>
+            <button type="button" data-alert-type="read"><span class="badge violet">▧</span><strong>사진 업로드 알림</strong><small>소정님이 사진을 업로드했습니다.</small><time>1시간 전</time></button>
+            <button type="button" data-alert-type="important"><span class="badge rose">▻</span><strong>화상회의 알람</strong><small>오늘 15:00에 화상회의가 예정되어 있습니다.</small><time>2시간 전</time><em>중요</em></button>
+            <button type="button" data-alert-type="important"><span class="badge blue">▥</span><strong>투표 알람</strong><small>새로운 투표가 등록되었습니다. 점심 메뉴를 선택해주세요!</small><time>3시간 전</time><em>중요</em></button>
+          </div>
+          <div class="empty-alert" hidden>
+            <span>♧</span>
+            <strong>표시할 알림이 없어요</strong>
+            <small>새 활동이 생기면 이곳에 보여드릴게요.</small>
           </div>
         </section>
 

@@ -1158,6 +1158,52 @@ input[type="checkbox"] {
   border-bottom: 3px solid #7a8ba7;
 }
 
+.alert-summary,
+.empty-alert {
+  margin: 14px 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.alert-summary strong,
+.alert-summary small,
+.empty-alert strong,
+.empty-alert small {
+  display: block;
+}
+
+.alert-summary small,
+.empty-alert small {
+  margin-top: 5px;
+  color: var(--muted);
+}
+
+.empty-alert {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.empty-alert[hidden] {
+  display: none;
+}
+
+.empty-alert span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  color: var(--primary);
+  background: #f0efff;
+  font-size: 24px;
+}
+
 .notice-list button {
   grid-template-columns: 48px 1fr 60px;
   padding: 16px 0;
@@ -1177,6 +1223,19 @@ input[type="checkbox"] {
   height: 8px;
   border-radius: 50%;
   background: #7890ad;
+}
+
+.notice-list em {
+  position: absolute;
+  right: 0;
+  top: 15px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #665de8;
+  background: #f0efff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
 }
 
 .profile-card {

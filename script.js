@@ -430,11 +430,32 @@ document.querySelectorAll(".chat-filters button").forEach((button) => {
 document.querySelectorAll(".tab-line button").forEach((button) => {
   button.addEventListener("click", () => {
     setActiveWithin(button.closest(".tab-line"), button);
-    const importantOnly = button.textContent.includes("중요");
-    const unreadOnly = button.textContent.includes("안 읽은");
+    const label = button.textContent.trim();
+    const importantOnly = label.includes("중요");
+    const unreadOnly = label.includes("안 읽은");
+    const summaryTitle = document.querySelector("[data-alert-summary-title]");
+    const summaryCopy = document.querySelector("[data-alert-summary-copy]");
+    const emptyAlert = document.querySelector(".empty-alert");
+    let visibleCount = 0;
+
+    if (label === "전체") {
+      summaryTitle.textContent = "전체 알림";
+      summaryCopy.textContent = "팀플 활동을 시간순으로 모아봤어요.";
+    } else if (unreadOnly) {
+      summaryTitle.textContent = "안 읽은 알림";
+      summaryCopy.textContent = "아직 확인하지 않은 새 알림만 보여드려요.";
+    } else {
+      summaryTitle.textContent = "중요 알림";
+      summaryCopy.textContent = "회의, 투표, 긴급 채팅처럼 놓치면 안 되는 알림이에요.";
+    }
+
     document.querySelectorAll(".notice-list button").forEach((notice, index) => {
-      notice.hidden = (importantOnly && index > 2) || (unreadOnly && index % 2 === 1);
+      const type = notice.dataset.alertType || "";
+      const shouldHide = (importantOnly && !type.includes("important")) || (unreadOnly && !type.includes("unread"));
+      notice.hidden = shouldHide;
+      if (!shouldHide) visibleCount += 1;
     });
+    emptyAlert.hidden = visibleCount > 0;
   });
 });
 
@@ -533,6 +554,7 @@ document.addEventListener("click", (event) => {
   const notice = event.target.closest(".notice-list button");
   if (notice) {
     notice.querySelector("i")?.remove();
+    notice.dataset.alertType = (notice.dataset.alertType || "").replace("unread", "read").trim();
     const title = notice.querySelector("strong")?.textContent || "알림";
     const copy = notice.querySelector("small")?.textContent || "알림 상세입니다.";
     openInfo(title, copy);
