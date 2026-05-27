@@ -1,0 +1,127 @@
+Error: [31m  Failed to scan for dependencies from entries:
+  C:/vscode/itda/index.html
+
+  [39mspawn EPERM
+    at ChildProcess.spawn (node:internal/child_process:421:11)
+    at Object.spawn (node:child_process:796:9)
+    at ensureServiceIsRunning (C:\vscode\itda\node_modules\esbuild\lib\main.js:1978:29)
+    at Object.context (C:\vscode\itda\node_modules\esbuild\lib\main.js:1877:33)
+    at prepareEsbuildScanner (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:14266:24)
+    at async file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:47039:28
+[2mPM 10:21:49[22m [31m[1m[vite][22m[39m Pre-transform error: spawn EPERM
+[2mPM 10:21:52[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31merror while updating dependencies:
+Error: EPERM: operation not permitted, rename 'C:\vscode\itda\node_modules\.vite\deps_temp_ba4a7877' -> 'C:\vscode\itda\node_modules\.vite\deps'[39m
+[2mPM 10:29:51[22m [31m[1m[vite][22m[39m Pre-transform error: spawn EPERM
+[2mPM 10:29:51[22m [31m[1m[vite][22m[39m [31mInternal server error: spawn EPERM[39m
+      at ChildProcess.spawn (node:internal/child_process:421:11)
+      at spawn (node:child_process:796:9)
+      at Object.execFile (node:child_process:349:17)
+      at exec (node:child_process:236:25)
+      at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+      at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+      at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+      at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+      at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+      at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15)
+[2mPM 10:29:51[22m [31m[1m[vite][22m[39m [31mInternal server error: spawn EPERM[39m
+      at ChildProcess.spawn (node:internal/child_process:421:11)
+      at spawn (node:child_process:796:9)
+      at Object.execFile (node:child_process:349:17)
+      at exec (node:child_process:236:25)
+      at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+      at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+      at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+      at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+      at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+      at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15)
+[2mPM 10:40:34[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to load url /script.js (resolved id: /script.js). Does the file exist?
+[2mPM 10:40:34[22m [31m[1m[vite][22m[39m [31mInternal server error: spawn EPERM[39m
+      at ChildProcess.spawn (node:internal/child_process:421:11)
+      at spawn (node:child_process:796:9)
+      at Object.execFile (node:child_process:349:17)
+      at exec (node:child_process:236:25)
+      at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+      at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+      at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+      at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+      at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+      at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15)
+[2mPM 10:40:37[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to load url /script.js (resolved id: /script.js). Does the file exist?
+[2mPM 10:40:38[22m [31m[1m[vite][22m[39m [31mInternal server error: spawn EPERM[39m
+      at ChildProcess.spawn (node:internal/child_process:421:11)
+      at spawn (node:child_process:796:9)
+      at Object.execFile (node:child_process:349:17)
+      at exec (node:child_process:236:25)
+      at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+      at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+      at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+      at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+      at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+      at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15)
+[2mPM 10:40:42[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to load url /script.js (resolved id: /script.js). Does the file exist?
+[2mPM 10:40:42[22m [31m[1m[vite][22m[39m [31mInternal server error: spawn EPERM[39m
+      at ChildProcess.spawn (node:internal/child_process:421:11)
+      at spawn (node:child_process:796:9)
+      at Object.execFile (node:child_process:349:17)
+      at exec (node:child_process:236:25)
+      at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+      at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+      at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+      at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+      at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+      at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15)
+[2mPM 10:40:42[22m [31m[1m[vite][22m[39m [31mInternal server error: spawn EPERM[39m
+      at ChildProcess.spawn (node:internal/child_process:421:11)
+      at spawn (node:child_process:796:9)
+      at Object.execFile (node:child_process:349:17)
+      at exec (node:child_process:236:25)
+      at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+      at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+      at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+      at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+      at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+      at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15)
+[2mPM 10:40:51[22m [31m[1m[vite][22m[39m Pre-transform error: spawn EPERM
+[2mPM 10:40:51[22m [31m[1m[vite][22m[39m [31mInternal server error: spawn EPERM[39m
+      at ChildProcess.spawn (node:internal/child_process:421:11)
+      at spawn (node:child_process:796:9)
+      at Object.execFile (node:child_process:349:17)
+      at exec (node:child_process:236:25)
+      at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+      at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+      at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+      at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+      at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+      at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15)
+[2mPM 10:40:51[22m [31m[1m[vite][22m[39m [31mInternal server error: spawn EPERM[39m
+      at ChildProcess.spawn (node:internal/child_process:421:11)
+      at spawn (node:child_process:796:9)
+      at Object.execFile (node:child_process:349:17)
+      at exec (node:child_process:236:25)
+      at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+      at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+      at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+      at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+      at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+      at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15)
+node:internal/child_process:421
+    throw new ErrnoException(err, 'spawn');
+          ^
+
+Error: spawn EPERM
+    at ChildProcess.spawn (node:internal/child_process:421:11)
+    at spawn (node:child_process:796:9)
+    at Object.execFile (node:child_process:349:17)
+    at exec (node:child_process:236:25)
+    at optimizeSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6938:3)
+    at windowsSafeRealPathSync (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:6919:5)
+    at getRealPath (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16363:16)
+    at tryResolveRealFileOrType (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:16354:20)
+    at tryCleanFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15954:22)
+    at tryFsResolve (file:///C:/vscode/itda/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:15947:15) {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'spawn'
+}
+
+Node.js v24.14.1
